@@ -20,7 +20,7 @@ pub(crate) async fn index() -> Markup {
         }
         ul class="list-disc list-inside"{
             li {"write even more rust (this entire website is written in rust)" }
-            li {"dabble in some functional programming"}
+            li {"dabble in some functional programming (I really like gleam right now)"}
             li {"make ok pourover coffee"}
             li {"lose many an online chess game"}
             li {"watch Arsenal"}

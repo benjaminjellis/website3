@@ -21,6 +21,8 @@ else
   fi
 fi
 
+sleep 10
+
 cp new_artefacts/website .
 
 rm -rf static
