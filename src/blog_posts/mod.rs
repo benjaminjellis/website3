@@ -14,7 +14,7 @@ pub struct BlogPost {
 impl BlogPost {
     fn new(page: fn() -> (&'static str, &'static str, Markup)) -> Self {
         let (title, url, html) = page();
-        Self { url, html, title }
+        Self { url, title, html }
     }
 }
 

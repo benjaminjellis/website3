@@ -51,7 +51,7 @@ pub(crate) async fn index() -> Markup {
         }
     };
 
-    layout("benjamin ellis", content)
+    layout("benjamin ellis", &content)
 }
 
 pub(crate) async fn blog_overview() -> Markup {
@@ -61,7 +61,7 @@ pub(crate) async fn blog_overview() -> Markup {
         .collect::<Vec<_>>();
 
     let blog_posts = html! {
-        ol {
+        ul class="list-disc list-inside"{
         @for (titie, url) in &post{
             @let url = format!("/blog/{url}");
             li { a href=(url) { (titie) } }
@@ -69,12 +69,12 @@ pub(crate) async fn blog_overview() -> Markup {
      }
     };
 
-    layout("blog", blog_posts)
+    layout("blog", &blog_posts)
 }
 
 pub(crate) async fn blog_post(Path(post_name): Path<String>) -> Markup {
     match BLOG_POSTS.iter().find(|post| post.url == post_name) {
-        Some(_) => layout("blog post", html! {}),
+        Some(blog_post) => layout("blog post", &blog_post.html),
         None => four_oh_four(),
     }
 }

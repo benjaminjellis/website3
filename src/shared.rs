@@ -9,13 +9,13 @@ fn nav_item(link: &str, text: &str) -> Markup {
 pub(crate) fn four_oh_four() -> Markup {
     layout(
         "uh oh :(",
-        html!(
+        &html!(
             p{"we coulnd't find"}
         ),
     )
 }
 
-pub(crate) fn layout(title: &str, content: Markup) -> Markup {
+pub(crate) fn layout(title: &str, content: &Markup) -> Markup {
     html! {
         (DOCTYPE)
         head {
@@ -27,19 +27,22 @@ pub(crate) fn layout(title: &str, content: Markup) -> Markup {
             }
         }
         body."flex h-screen"{
-            aside."bg-yellow-300 w-1/10 flex flex-col"{
+            aside."bg-yellow-300 w-1/20 flex flex-col"{
                 nav."h-4/5 p-8"{
                    ul."space-y-1" {
                         (nav_item("/", "home"))
                         (nav_item("/blog", "blog"))
                         (nav_item("https://github.com/benjaminjellis", "github"))
                         (nav_item("https://lichess.org/@/agnesmartinstan", "lichess"))
-                        (nav_item("https://lichess.org/@/agnesmartinstan", "linkedin"))
+                        (nav_item("https://www.linkedin.com/in/benjamin-ellis-7420b1150/", "linkedin"))
                     }
                 }
-               div."h-1/5 p-4 flex items-center justify-center"{
-                    h1."text-2xl font-bold text-gray-900 text-center leading-tight;"{
-                        "Benjamin Ellis"
+               div."h-1/5 p-4 flex items-center justify-center flex-col"{
+                    h1."text-2xl font-bold text-gray-900 text-center leading-tight"{
+                        "Benjamin"
+                    }
+                    h1."text-2xl font-bold text-gray-900 text-center leading-tight"{
+                        "Ellis"
                     }
                 }
             }
