@@ -29,4 +29,6 @@ cp -r new_artefacts/static .
 
 rm -rf new_artefacts
 
+echo "Running website using nohup"
 nohup ./website &>/dev/null &
+echo "done"
