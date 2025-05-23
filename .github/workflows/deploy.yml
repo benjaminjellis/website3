@@ -24,6 +24,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
+          port: 22
           source: "static/input.css,static/output.css,target/release/website"
           target: new_artefacts
 
