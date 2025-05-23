@@ -10,21 +10,21 @@ jobs:
     runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          rustup default 1.87.0
-      - name: build release
-        run: cargo build --release
-      - name: install tailwind css
-        run: npm install tailwindcss @tailwindcss/cli
-      - name: build css
-        run: npx @tailwindcss/cli -i ./static/input.css -o ./static/output.css 
+      # - run: |
+      #     rustup default 1.87.0
+      # - name: build release
+      #   run: cargo build --release
+      # - name: install tailwind css
+      #   run: npm install tailwindcss @tailwindcss/cli
+      # - name: build css
+      #   run: npx @tailwindcss/cli -i ./static/input.css -o ./static/output.css 
       - name: copy files over ssh
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          source: "static/input.css,static/output.css,target/release/website"
+          source: "static/input.css"
           target: new_artefacts
 
       # - name: deploy
