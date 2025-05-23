@@ -27,7 +27,7 @@ pub(crate) fn layout(title: &str, content: &Markup) -> Markup {
             }
         }
         body."flex h-screen"{
-            aside."bg-yellow-300 w-1/20 flex flex-col"{
+            aside."bg-yellow-300 w-1/10 flex flex-col"{
                 nav."h-4/5 p-8"{
                    ul."space-y-1" {
                         (nav_item("/", "home"))
