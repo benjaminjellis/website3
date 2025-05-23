@@ -36,3 +36,6 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             mv new_artefacts/restart_server.sh .
+            sh restart_server.sh
+            rm -rf restart_server.sh
+
