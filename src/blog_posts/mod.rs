@@ -7,6 +7,7 @@ mod pocari;
 pub struct BlogPost {
     pub title: &'static str,
     pub url: &'static str,
+    #[allow(dead_code)]
     pub html: maud::Markup,
 }
 
