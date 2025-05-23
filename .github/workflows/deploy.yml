@@ -1,0 +1,19 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          rustup default 1.87.0
+      - name: build release
+        run: cargo build --release
+      - name: deploy
+        run: echo todo
+

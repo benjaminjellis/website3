@@ -1,0 +1,23 @@
+name: pr
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  test_lint_and_build: 
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          rustup default 1.87.0
+          rustup component add clippy
+          rustup component add rustfmt
+      - name: lint
+        run: cargo clippy -- -D warnings
+      - name: fmt
+        run: cargo fmt -- --check
+      - name: Test 
+        run: cargo test
+      - name: Build
+        run: cargo build
