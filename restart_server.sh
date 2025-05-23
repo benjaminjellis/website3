@@ -30,5 +30,6 @@ cp -r new_artefacts/static .
 rm -rf new_artefacts
 
 echo "Running website using nohup"
-nohup ./website &>/dev/null &
+nohup ./website &>/dev/null 2>&1 &
 echo "done"
+exit
