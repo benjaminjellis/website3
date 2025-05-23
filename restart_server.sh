@@ -29,4 +29,4 @@ cp -r new_artefacts/static .
 
 rm -rf new_artefacts
 
-nohup ./website &
+nohup ./website &>/dev/null &
