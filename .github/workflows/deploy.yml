@@ -17,20 +17,7 @@ jobs:
       - name: install tailwind css
         run: npm install tailwindcss @tailwindcss/cli
       - name: build css
-        run: npx @tailwindcss/cli -i ./static/input.css -o ./static/output.css 
-      - name: copy files over ssh
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          protocol: tcp6
-          source: "static/input.css,static/output.css,target/release/website"
-          target: new_artefacts
-
-      # - name: deploy
-      #   run: |
-      #     kill -9 $(lsof -ti:3000)
-      #     rm -rf website
-
+        run: |
+          npx @tailwindcss/cli -i ./static/input.css -o ./static/output.css 
+          curl -6 https://www.google.com/
 
