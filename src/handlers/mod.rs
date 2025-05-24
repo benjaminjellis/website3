@@ -12,25 +12,22 @@ pub(crate) async fn index() -> Markup {
             bold{ "about me:" }
         }
         p {
-            "in my day to day I'm a backend engineer working in Rust at a stealth fintech startup"
+            "in my day to day I'm a backend engineer, primarily writing Rust at a stealth fintech startup"
         }
         br;
         h2."font-bold" {
-            "outside of work I:"
+            "some projects of varying usefulnesss:"
         }
-        ul class="list-disc list-inside"{
-            li {"write even more rust (this entire website is written in rust)" }
-            li {"dabble in some functional programming (I really like gleam right now)"}
-            li {"make ok pourover coffee"}
-            li {"lose many an online chess game"}
-            li {"watch Arsenal"}
+        ul."list-disc list-inside"{
+            li."italic"{ a."hover:underline" href="https://github.com/benjaminjellis/gegen"{"gegen: football scores and fixtures from across the world, in the terminal "}}
+            li."italic"{ a."hover:underline" href="https://github.com/benjaminjellis/cherry2"{"cherry: a a coffee logbook to help you keep track of your brews (currently WIP)"}}
         }
         br;
         h2."font-bold"{
             "current:"
         }
         ul class="list-disc list-inside"{
-            li {"backend engineer (Rust) @ stealth fintech startup"}
+            li {"backend engineer @ stealth fintech startup"}
         }
         br;
         h2."font-bold"{
@@ -40,14 +37,6 @@ pub(crate) async fn index() -> Markup {
             li {"data scientist @ Capgemini Invent"}
             li {"financial engineer @ IHS Markit"}
             li {"consultant @ EY"}
-        }
-        br;
-        h2."font-bold"{
-            "education:"
-        }
-        ul class="list-disc list-inside"{
-            li {"University College London"}
-            li {"University of Liverpool"}
         }
     };
 
@@ -74,7 +63,7 @@ pub(crate) async fn blog_overview() -> Markup {
 
 pub(crate) async fn blog_post(Path(post_name): Path<String>) -> Markup {
     match BLOG_POSTS.iter().find(|post| post.url == post_name) {
-        Some(blog_post) => layout("blog post", &blog_post.html),
+        Some(blog_post) => layout(blog_post.title, &blog_post.html),
         None => four_oh_four(),
     }
 }
