@@ -21,9 +21,9 @@ else
   fi
 fi
 
-echo "Sleeping for 30 seconds"
-sleep 30
-echo "Done sleeping"
+echo "Waiting for 60 seconds"
+sleep 60
+echo "Done waiting"
 
 cp new_artefacts/website .
 
